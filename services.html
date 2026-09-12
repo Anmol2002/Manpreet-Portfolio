@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Services — Manpreet Kaur</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/case-study.css" />
+    <style>
+      .services-hero {
+        padding: 180px 0 60px 0;
+        border-bottom: 1px solid #E6DED8;
+      }
+      .services-hero h1 {
+        font-size: 82px;
+        line-height: 88px;
+        margin-top: 15px;
+      }
+      .services-hero h1 span {
+        font-style: italic;
+        color: #cb090d;
+      }
+      .services-hero p {
+        font-size: 18px;
+        color: #555;
+        max-width: 1300px;
+        margin-top: 20px;
+        line-height: 1.8;
+      }
+      
+      /* Grid */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin: 60px 0 100px 0;
+      }
+      
+      .service-card {
+        border: 1px solid #e6ddd6;
+        border-radius: 24px;
+        background: #f8f3f0;
+        padding: 45px 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 420px;
+        transition: all 0.3s ease;
+      }
+      
+      .service-card:hover {
+        transform: translateY(-5px);
+        border-color: #cb090d;
+      }
+      
+      .service-card .num {
+        font-size: 14px;
+        color: #cb090d;
+        font-weight: 600;
+        font-family: 'Inter', sans-serif;
+      }
+      
+      .service-card h2 {
+        font-size: 38px;
+        margin: 20px 0 15px 0;
+      }
+      
+      .service-card p {
+        color: #666;
+        line-height: 1.7;
+        font-size: 16px;
+      }
+      
+      .service-card ul {
+        margin-top: 25px;
+        padding-left: 20px;
+      }
+      
+      .service-card li {
+        margin-bottom: 8px;
+        color: #444;
+        font-size: 15px;
+      }
+      
+      /* FAQ Section */
+      .faq-section {
+        background: #0d0d0d;
+        color: #fff;
+        padding: 100px 0;
+      }
+      
+      .faq-wrapper {
+        display: flex;
+        gap: 60px;
+      }
+      
+      .faq-left {
+        width: 35%;
+      }
+      
+      .faq-left h2 {
+        font-size: 60px;
+        line-height: 1.1;
+      }
+      
+      .faq-left h2 span {
+        font-style: italic;
+        color: #cb090d;
+      }
+      
+      .faq-left p {
+        margin-top: 20px;
+        color: #999;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+      
+      .faq-right {
+        width: 65%;
+      }
+      
+      .accordion-item {
+        border-bottom: 1px solid #333;
+        padding: 24px 0;
+      }
+      
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+      
+      .accordion-header h3 {
+        font-size: 26px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+      }
+      
+      .accordion-icon {
+        font-size: 24px;
+        transition: transform 0.3s ease;
+      }
+      
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      
+      .accordion-content p {
+        margin-top: 15px;
+        color: #aaa;
+        line-height: 1.8;
+        font-size: 15px;
+      }
+      
+      .accordion-item.active .accordion-icon {
+        transform: rotate(45deg);
+        color: #cb090d;
+      }
+      
+      .accordion-item.active .accordion-content {
+        max-height: 200px;
+      }
+
+      @media(max-width: 1024px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .faq-wrapper {
+          flex-direction: column;
+        }
+        .faq-left, .faq-right {
+          width: 100%;
+        }
+      }
+      @media(max-width: 768px) {
+        .services-hero h1, .faq-left h2 {
+          font-size: 58px;
+          line-height: 64px;
+        }
+      }
+    </style>
+    <script src="js/components.js"></script>
+  </head>
+
+  <body>
+
+    <!-- =========================
+    NAVBAR
+    ========================= -->
+
+    <app-navbar variant="case-dt"></app-navbar>
+
+    <!-- =========================
+    HERO
+    ========================= -->
+
+    <section class="services-hero">
+      <div class="container">
+        <a href="index.html" class="back-link">
+          ← BACK TO HOME
+        </a>
+        <div class="services-hero-content reveal">
+          <div class="section-tag">WHAT I DO</div>
+          <h1>Design <span>Support For Products </span>That Need To Work Better</h1>
+          <p>Good product design starts long before the final interface. I look at the problem, 
+            understand the users and business goals, structure the experience, and then turn it
+             into a polished interface that is practical to use and build. Whether you need 
+             help shaping a new product, improving an existing experience or designing a 
+             complete interface from scratch, I can work with you from the early UX stage 
+             through final UI and handoff.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+    SERVICES GRID
+    ========================= -->
+
+    <section style="padding: 40px 0;">
+      <div class="container">
+        <div class="services-grid">
+          
+          <!-- SERVICE 1 -->
+          <div class="service-card reveal reveal-delay-1">
+            <div>
+              <span class="num">01</span>
+              <h2>Product & UX Design</h2>
+              <p>Turn an idea, business requirement or complicated workflow into a clear product experience.</p>
+              <ul>
+                <li>Product Discovery</li>
+                <li>UX Strategy</li>
+                <li>User Flows</li>
+                <li>Information Architecture</li>
+                <li>Wireframing</li>
+                <li>User Journey Mapping</li>
+                <li>UX Audits</li>
+                <li>Usability Improvements</li>
+              </ul>
+            </div>
+          </div>
+
+                    <!-- SERVICE 2 -->
+          <div class="service-card reveal reveal-delay-3">
+            <div>
+              <span class="num">02</span>
+              <h2>UI & Interface Design</h2>
+              <p>I create polished, consistent interfaces that give products a clear visual 
+                language across screens and devices.</p>
+              <ul>
+               <li>Web UI Design</li>
+               <li>Mobile UI Design</li>
+               <li>SaaS UI/UX Design</li>
+               <li>Visual Design</li>
+               <li>Design Systems</li>
+               <li>Component Libraries</li>
+               <li>Responsive UI Design</li>
+               <li>Interactive Prototypes</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- SERVICE 3 -->
+          <div class="service-card reveal reveal-delay-3">
+            <div>
+              <span class="num">03</span>
+              <h2>AI Product Design</h2>
+              <p>Designing AI-powered products with interfaces that help users understand what 
+                the system is doing, what they can do next and how to stay in control.</p>
+              <ul>
+                <li>AI SaaS Products</li>
+                <li>AI Dashboards</li>
+                <li>AI Assistants</li>
+                <li>AI Workflows</li>
+                <li>Conversational Interfaces</li>
+                <li>AI Feature UX</li>
+                <li>Human-AI Interaction</li>
+                <li>AI Product Prototyping</li>                
+              </ul>
+            </div>
+          </div>
+
+                    <!-- SERVICE 4 -->
+          <div class="service-card reveal reveal-delay-2">
+            <div>
+              <span class="num">04</span>
+              <h2>SaaS & Dashboard Design</h2>
+              <p>I design complex SaaS platforms and dashboards that make information easier to understand and workflows easier to manage.</p>
+              <ul>
+                <li>SaaS Platforms</li>
+                <li>Admin Dashboards</li>
+                <li>Analytics Dashboards</li>
+                <li>Data Visualization  </li>
+                <li>Complex Workflows</li>
+                <li>Role-Based Experiences</li>
+                <li>Responsive Interfaces</li>
+                <li>Design Systems</li>
+              </ul>
+            </div>
+          </div>
+
+
+                    <!-- SERVICE 5 -->
+          <div class="service-card reveal reveal-delay-3">
+            <div>
+              <span class="num">05</span>
+              <h2>Mobile & Web App Design</h2>
+              <p>From mobile applications to responsive websites, I design experiences that
+                feel natural across different screen sizes and user contexts.</p>
+              <ul>
+                <li>iOS & Android UI Design</li>
+                <li>Mobile App UX Design</li>
+                <li>Web App Design</li>
+                <li>Responsive Web Design</li>
+                <li>Landing Page Design</li>
+                <li>E-commerce UI/UX</li>
+                <li>Interaction Design</li>
+              </ul>
+            </div>
+          </div>
+
+                    <!-- SERVICE 6 -->
+          <div class="service-card reveal reveal-delay-3">
+            <div>
+              <span class="num">06</span>
+              <h2>Frontend Development</h2>
+              <p>I can take a finished design beyond Figma and turn it into a responsive, 
+                functional interface while keeping the original design intent intact.</p>
+              <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>Responsive Web Development</li>
+                <li>Interactive UI Development</li>
+                <li>Figma to Code</li>
+                <li>Frontend Implementation</li>
+                <li>UI Refinement & Optimization</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+    MY PROCESS SECTION
+    ========================= -->
+
+    <section class="faq-section">
+      <div class="container">
+        <div class="faq-wrapper">
+          
+          <div class="faq-left reveal">
+            <div class="section-tag">MY PROCESS</div>
+            <h2>One process <span>Different problems</span></h2>
+            <p>Every project is different, but the process stays clear, collaborative, and focused on solving the right problems.</p>
+          </div>
+
+          <div class="faq-right reveal reveal-delay-1">
+            
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <h3>01. Research & Discovery</h3>
+                <div class="accordion-icon">+</div>
+              </div>
+              <div class="accordion-content">
+                <p>Understand the users, requirements, business goals and existing product.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <h3>02. Structure</h3>
+                <div class="accordion-icon">+</div>
+              </div>
+              <div class="accordion-content">
+                <p>Organize information and create a clear path through the product.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <h3>03. Design</h3>
+                <div class="accordion-icon">+</div>
+              </div>
+              <div class="accordion-content">
+                <p>Turn the structure into a polished, consistent and responsive interface.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <h3>04. Prototype</h3>
+                <div class="accordion-icon">+</div>
+              </div>
+              <div class="accordion-content">
+                <p>Connect the screens, test the experience and refine important interactions.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <h3>05. Deliver</h3>
+                <div class="accordion-icon">+</div>
+              </div>
+              <div class="accordion-content">
+                <p>Prepare everything needed for implementation or help take the design into frontend development.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+    FOOTER
+    ========================= -->
+
+        <footer class="vision-footer">
+    <div class="container">
+      <div class="footer-wrapper">
+        <div class="footer-logo">
+          <div class="logo"><a href="index.html">MK<span style="color: #cb090d;">.</span></a></div>
+          <p>
+            I'm always open to discussing new projects, creative ideas or
+            opportunities.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>PAGES</h4>
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="services.html">Services</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>SOCIALS</h4>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            Instagram
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            Linkedin
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <h1 class="huge-text">VISION</h1>
+      </div>
+    </div>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.9/dist/lenis.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      // FAQ Accordion logic
+      document.addEventListener("DOMContentLoaded", () => {
+        const accordionItems = document.querySelectorAll(".accordion-item");
+
+        accordionItems.forEach(item => {
+          const header = item.querySelector(".accordion-header");
+          header.addEventListener("click", () => {
+            const isActive = item.classList.contains("active");
+            
+            // Close all items
+            accordionItems.forEach(i => i.classList.remove("active"));
+            
+            // Toggle clicked item
+            if (!isActive) {
+              item.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
